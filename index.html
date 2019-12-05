@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="containerTitle">
+        <h1 class="titleMain">Calorie Counter</h1>
+    </div>
+    <div class="containerContent">
+        <h2 class="titleSecondary">Food & amount</h2>
+        <div class="containerFlexDropdown">
+            <div class="dropDown">
+                <input type="text" placeholder="Search..." class="inputFood" id="myInput" onclick="addFood()" onblur="addFood()" onkeyup="filterFunction()">
+                <div id="myDropdown" class="dropDownContent">
+                  <a href="#apple">Apple</a>
+                  <a href="#grape">Grape</a>
+                  <a href="#melon">Melon</a>
+                  <a href="#tomato">Tomato</a>
+                  <a href="#chicken">Chicken </a>
+                  <a href="#nuts">Nuts</a>
+                  <a href="#paprika">Paprika</a>
+                </div>
+                <input type="number" placeholder="Amount" class="inputNumber" id="myAmount" onclick="addAmount()" onblur="addAmount()">
+            </div>
+            <button class="buttonAdd" id="addFoodButton">Add food</button>
+            </div>
+        </div>
+    </div>
+    <div class="containerContent">
+        <h2 class="titleSecondary">Consumed food</h2>
+        <table class="containerFlex" id="foodTable">
+            <tbody>
+                <tr>
+                    <td>Meal</td>
+                    <td>Food amount</td>
+                    <td>Energy</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="containerContent">
+        <h2 class="titleSecondary">Workout & time</h2>
+        <div class="containerFlexWorkout">
+            <input type="text" class="inputWorkout" placeholder="Workout type">
+            <button class="buttonAdd">Add workout</button>
+        </div>
+    </div>
+    <div class="containerContent">
+        <h2 class="titleSecondary">Workout done</h2>
+        <div class="containerFlex">
+            <ul class="workoutDone">
+                <li>Fitness</li>
+            </ul>
+            <ul class="workoutTime">
+                <li>90 min</li>
+            </ul>
+            <ul class="workoutCals">
+                <li>657 kCal</li>
+            </ul>
+        </div>
+    </div>
+    <div class="containerContent">
+        <button class="buttonSummary"><span>Summary</span></button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
