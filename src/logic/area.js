@@ -10,7 +10,18 @@ const isNumber = function (num) {
 
 export function calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth) {
     isValidParameter(torsoParameters)
-    return 0;
+    isValidParameter(armParameters)
+    isValidParameter(neckParameters)
+    if (!isNumber(materialWidth)) {
+        throw new Error ("Please type correct value. Parameter materialWidth is not a number.")
+    }
+    
+    const torsoArea = calculateTorso(torsoParameters)
+    const armArea = calculateArm(armParameters)
+    const neckArea = calculateNeck(neckParameters)
+    const fullArea = (2 * torsoArea) + (2 * armArea) + neckArea
+    const materialLength = fullArea / materialWidth
+    return materialLength;
 }
 
 export function isValidParameter (parameter) {
@@ -18,7 +29,6 @@ export function isValidParameter (parameter) {
         if (!isNumber(item[1])) {
             throw new Error ("Please type correct value. Parameter key " + item[0] + " is not a number.")
         }
-
     })
     return true;
 }

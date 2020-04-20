@@ -14,18 +14,18 @@ test('calculate Material length', () => {
         seamWidth: 2
     }
     const neckParameters = {
-        neckWidth: 40,
-        neckLength: 10,
+        width: 40,
+        length: 10,
         seamWidth: 2
     }
     const materialWidth = 150;
 
     const materialLength = calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth);
 
-    expect(materialLength).toBe(0);
+    expect(materialLength).toBe(120.26666666666667);
 });
 
-test('isValidParameter', () => {
+test('isValidParameter throws error if any of the values is not a number', () => {
     const param = {
         checkingvalue1: 24,
         checkingvalue2: "string"
