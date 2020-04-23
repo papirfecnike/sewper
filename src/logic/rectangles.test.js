@@ -1,4 +1,4 @@
-import { calculateTorso, calculateArm, calculateNeck, validateTorsoParameters, validateArmParameters, validateNeckParameters } from './rectangles.js';
+import { calculateTorso, calculateArm, calculateNeck, validateTorsoParameters, validateArmParameters, validateNeckParameters, calculateArea } from './rectangles.js';
 
 test('calculate Torso rectangles correctly', () => {
     const torsoParameters = {
@@ -61,4 +61,11 @@ test('validate Neck keys', () => {
     expect(validateNeckParameters(neckParameters)).toBe(true);
 });
 
-test.todo("calculateArea")
+//  return (width + (seam * 2)) * (length + (seam * 2));
+test('validation of Area calculation function', () => {
+    const width = 20;
+    const length = 10;
+    const seam = 2;
+    const result = calculateArea(width, length, seam);
+    expect(result).toBe(336);
+});
