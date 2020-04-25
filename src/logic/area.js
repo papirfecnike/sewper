@@ -1,5 +1,5 @@
 // Torso x 2, Arms x 2, Neck x 1
-/* Parameters: Material width, Seam width, Full length, Chest width, 
+/* Parameters: Material width, Seam width, Full length, Chest width,
    Waist width, Hip width, Arm circumference, Arm length, Neck width, Neck length */
 
 import { calculateTorso, calculateArm, calculateNeck } from './rectangles.js';
@@ -15,12 +15,13 @@ export function calculateMaterialLength(torsoParameters, armParameters, neckPara
     if (!isNumber(materialWidth)) {
         throw new Error ("Please type correct value. Parameter materialWidth is not a number.")
     }
-    
+
     const torsoArea = calculateTorso(torsoParameters)
     const armArea = calculateArm(armParameters)
     const neckArea = calculateNeck(neckParameters)
     const fullArea = (2 * torsoArea) + (2 * armArea) + neckArea
     const materialLength = fullArea / materialWidth
+
     return materialLength;
 }
 

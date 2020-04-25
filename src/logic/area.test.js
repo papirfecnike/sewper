@@ -14,8 +14,8 @@ test('calculate Material length', () => {
         seamWidth: 2
     }
     const neckParameters = {
-        width: 40,
-        length: 10,
+        neckWidth: 40,
+        neckHeight: 10,
         seamWidth: 2
     }
     const materialWidth = 150;
