@@ -1,6 +1,7 @@
 // Torso = [Widest of (Chest width, Waist width, Hip width) + Seam width x 2] x (Full length + Seam width x 2)
 
 export function calculateTorso(torsoParameters) {
+  validateTorsoParameters(torsoParameters);
     const {
         chestWidth,
         waistWidth,
@@ -16,6 +17,7 @@ export function calculateTorso(torsoParameters) {
 // Arms = (Arm circumference + Seam width x 2) x (Arm length + Seam width x 2)
 
 export function calculateArm(armParameters) {
+    validateArmParameters(armParameters);
     const {
         armCircumference,
         armLength,
@@ -28,12 +30,13 @@ export function calculateArm(armParameters) {
 // Neck = (Width + Seam width x 2) x (Length + Seam width x 2)
 
 export function calculateNeck(neckParameters) {
+  validateNeckParameters(neckParameters);
     const {
-        width,
-        length,
+        neckWidth,
+        neckHeight,
         seamWidth
     } = neckParameters
-    const area = calculateArea(width, length, seamWidth);
+    const area = calculateArea(neckWidth, neckHeight, seamWidth);
     return area;
 }
 
@@ -66,7 +69,7 @@ export function validateArmParameters (armParameters) {
 }
 
 export function validateNeckParameters (neckParameters) {
-    const neckKeys = ["width", "length", "seamWidth"]
+    const neckKeys = ["neckWidth", "neckHeight", "seamWidth"]
     Object.keys(neckParameters).forEach(function (key) {
         if (!neckKeys.includes(key)) {
             throw new Error ("Please type correct key. Parameter key " + key + " is not valid.")

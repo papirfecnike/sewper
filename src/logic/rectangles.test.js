@@ -24,8 +24,8 @@ test('calculate Arm rectangles correctly', () => {
 
 test('calculate Neck rectangles correctly', () => {
     const neckParameters = {
-        width: 10,
-        length: 40,
+        neckWidth: 10,
+        neckHeight: 40,
         seamWidth: 2
     }
     const rectangleArea = calculateNeck(neckParameters);
@@ -54,8 +54,8 @@ test('validate Arm keys', () => {
 
 test('validate Neck keys', () => {
     const neckParameters = {
-        width: 10,
-        length: 40,
+        neckWidth: 10,
+        neckHeight: 40,
         seamWidth: 2
     }
     expect(validateNeckParameters(neckParameters)).toBe(true);
