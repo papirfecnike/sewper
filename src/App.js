@@ -83,16 +83,16 @@ export default function App() {
       </Typography>
     </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField fullWidth type="number" label="Material width" onChange={event => setMaterialWidth(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Neck width" onChange={event => setNeckWidth(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Neck height" onChange={event => setNeckHeight(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Chest width" onChange={event => setChestWidth(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Waist width" onChange={event => setWaistWidth(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Hip width" onChange={event => setHipWidth(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Arm circumference" onChange={event => setArmCircumference(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Arm length" onChange={event => setArmLength(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="Full length" onChange={event => setFullLength(toNumber(event.target.value))} />
-            <TextField fullWidth type="number" label="General seam" onChange={event => setSeamWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Material width" onChange={event => setMaterialWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Neck width" onChange={event => setNeckWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Neck height" onChange={event => setNeckHeight(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Chest width" onChange={event => setChestWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Waist width" onChange={event => setWaistWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Hip width" onChange={event => setHipWidth(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Arm circumference" onChange={event => setArmCircumference(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Arm length" onChange={event => setArmLength(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="Full length" onChange={event => setFullLength(toNumber(event.target.value))} />
+            <TextField fullWidth pattern="[0-9]*" type="number" label="General seam" onChange={event => setSeamWidth(toNumber(event.target.value))} />
           </Grid>
 
           <Grid item xs={12} sm={12}>
