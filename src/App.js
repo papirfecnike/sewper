@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  titleMargin:{
+    marginTop:theme.spacing(2)
+  },
+  calcButton:{
+    marginTop:theme.spacing(2)
+  },
 }));
 
 export default function App() {
@@ -39,6 +45,8 @@ export default function App() {
 
   const [seamWidth, setSeamWidth] = useState(0)
 
+  const [materialLength, setMaterialLength] = useState(0)
+
   const calculate = () => {
     const torsoParameters = {
       chestWidth,
@@ -58,61 +66,44 @@ export default function App() {
       seamWidth
     }
     try {
-      const materialLength = calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth)
-      console.log(materialLength) // no review necessary for this, honey
+      const calculatedMaterialLength = calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth)
+      setMaterialLength(calculatedMaterialLength)
     } catch(error) {
       console.error (error)
     };
   }
 
   return (
-    <Container maxWidth="md">
-      <Typography variant="h4" component="h1">
+    <Container maxWidth="lg">
+      <div className={classes.root}>
+        <Grid container spacing={3} direction="column" justify="space-around" alignItems="center">
+    <Grid item xs={12} sm={6}>
+      <Typography className={classes.titleMargin} variant="h3" component="h1">
         Sewper
       </Typography>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={5}>
-            <Box my={4}>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Material width" onChange={event => setMaterialWidth(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Neck width" onChange={event => setNeckWidth(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Neck height" onChange={event => setNeckHeight(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Chest width" onChange={event => setChestWidth(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Waist width" onChange={event => setWaistWidth(toNumber(event.target.value))} />
-              </form>
-            </Box>
+    </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField fullWidth type="number" label="Material width" onChange={event => setMaterialWidth(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Neck width" onChange={event => setNeckWidth(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Neck height" onChange={event => setNeckHeight(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Chest width" onChange={event => setChestWidth(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Waist width" onChange={event => setWaistWidth(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Hip width" onChange={event => setHipWidth(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Arm circumference" onChange={event => setArmCircumference(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Arm length" onChange={event => setArmLength(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="Full length" onChange={event => setFullLength(toNumber(event.target.value))} />
+            <TextField fullWidth type="number" label="General seam" onChange={event => setSeamWidth(toNumber(event.target.value))} />
           </Grid>
-          <Grid item xs={5}>
-            <Box my={4}>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Hip width" onChange={event => setHipWidth(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Arm circumference" onChange={event => setArmCircumference(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Arm length" onChange={event => setArmLength(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="Full length" onChange={event => setFullLength(toNumber(event.target.value))} />
-              </form>
-              <form className={""} noValidate autoComplete="off">
-                <TextField type="number" label="General seam" onChange={event => setSeamWidth(toNumber(event.target.value))} />
-              </form>
-            </Box>
+
+          <Grid item xs={12} sm={12}>
+            <Button fullWidth className={classes.calcButton} variant="contained" onClick={calculate}>Calculate</Button>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="h2" align="center" gutterBottom>
+              {Math.round(materialLength) } cm
+            </Typography>
           </Grid>
         </Grid>
-        <br />
-        <Button variant="contained" onClick={calculate}>Calculate</Button>
       </div>
     </Container>
   );
