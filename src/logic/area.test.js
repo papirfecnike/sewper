@@ -1,26 +1,22 @@
 import { calculateMaterialLength, isValidParameter } from './area.js';
 
-test('calculate Material length', () => {
-    const torsoParameters = {
+test('calculateMaterialLength', () => {
+    const formFields = {
         chestWidth: 60,
         waistWidth: 40,
         hipWidth: 80,
         fullLength: 90,
-        seamWidth: 2
-    }
-    const armParameters = {
+        seamWidth: 2,
         armCircumference: 30,
         armLength: 20,
-        seamWidth: 2
-    }
-    const neckParameters = {
+        seamWidth: 2,
         neckWidth: 40,
         neckHeight: 10,
-        seamWidth: 2
+        seamWidth: 2,
+        materialWidth: 150,
     }
-    const materialWidth = 150;
 
-    const materialLength = calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth);
+    const materialLength = calculateMaterialLength(formFields);
 
     expect(materialLength).toBe(120.26666666666667);
 });

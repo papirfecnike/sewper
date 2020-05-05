@@ -50,30 +50,48 @@ export function calculateArea (width, length, seam) {
 
 export function validateTorsoParameters (torsoParameters) {
     const torsoKeys = ["chestWidth", "waistWidth", "hipWidth", "fullLength", "seamWidth"]
-    Object.keys(torsoParameters).forEach(function (key) {
-        if (!torsoKeys.includes(key)) {
-            throw new Error ("Please type correct key. Parameter key " + key + " is not valid.")
+    const filteredTorsoKeys = Object.keys(torsoParameters).filter(function (key) {
+        if (torsoKeys.includes(key)) {
+          return true;
+        }
+        else {
+          return false;
         }
     })
+    if (torsoKeys.length !== filteredTorsoKeys.length) {
+      throw new Error ("Please include correct key(s). Some of the key(s) is/are missing. Please check the following: " + torsoKeys.join(','))
+    }
     return true;
 }
 
 export function validateArmParameters (armParameters) {
     const armKeys = ["armCircumference", "armLength", "seamWidth"]
-    Object.keys(armParameters).forEach(function (key) {
-        if (!armKeys.includes(key)) {
-            throw new Error ("Please type correct key. Parameter key " + key + " is not valid.")
+    const filteredArmKeys = Object.keys(armParameters).filter(function (key) {
+        if (armKeys.includes(key)) {
+          return true;
+        }
+        else {
+          return false;
         }
     })
+    if (armKeys.length !== filteredArmKeys.length) {
+      throw new Error ("Please include correct key(s). Some of the key(s) is/are missing. Please check the following: " + armKeys.join(','))
+    }
     return true;
 }
 
 export function validateNeckParameters (neckParameters) {
     const neckKeys = ["neckWidth", "neckHeight", "seamWidth"]
-    Object.keys(neckParameters).forEach(function (key) {
-        if (!neckKeys.includes(key)) {
-            throw new Error ("Please type correct key. Parameter key " + key + " is not valid.")
+    const filteredNeckKeys = Object.keys(neckParameters).filter(function (key) {
+        if (neckKeys.includes(key)) {
+          return true;
+        }
+        else {
+          return false;
         }
     })
+    if (neckKeys.length !== filteredNeckKeys.length) {
+      throw new Error ("Please include correct key(s). Some of the key(s) is/are missing. Please check the following: " + neckKeys.join(','))
+    }
     return true;
 }

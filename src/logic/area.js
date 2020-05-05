@@ -8,17 +8,16 @@ const isNumber = function (num) {
     return typeof num === "number"
 }
 
-export function calculateMaterialLength(torsoParameters, armParameters, neckParameters, materialWidth) {
-    isValidParameter(torsoParameters)
-    isValidParameter(armParameters)
-    isValidParameter(neckParameters)
+export function calculateMaterialLength(formFields) {
+    const { materialWidth } = formFields
+    isValidParameter(formFields)
     if (!isNumber(materialWidth)) {
         throw new Error ("Please type correct value. Parameter materialWidth is not a number.")
     }
 
-    const torsoArea = calculateTorso(torsoParameters)
-    const armArea = calculateArm(armParameters)
-    const neckArea = calculateNeck(neckParameters)
+    const torsoArea = calculateTorso(formFields)
+    const armArea = calculateArm(formFields)
+    const neckArea = calculateNeck(formFields)
     const fullArea = (2 * torsoArea) + (2 * armArea) + neckArea
     const materialLength = fullArea / materialWidth
 
